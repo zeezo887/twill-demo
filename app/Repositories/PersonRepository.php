@@ -14,6 +14,8 @@ class PersonRepository extends ModuleRepository
 {
     use HandleBlocks, HandleTranslations, HandleSlugs, HandleMedias, HandleRevisions;
 
+    protected $relatedBrowsers = ['works'];
+
     public function __construct(Person $model)
     {
         $this->model = $model;
