@@ -7,7 +7,7 @@ use A17\Twill\Repositories\Behaviors\HandleSlugs;
 use A17\Twill\Repositories\ModuleRepository;
 use App\Models\Discipline;
 
-class DisciplineRepository extends ModuleRepository
+class DisciplineRepository extends BaseRepository
 {
     use HandleTranslations, HandleSlugs;
 

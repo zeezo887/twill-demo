@@ -101,6 +101,11 @@ class Work extends Model implements Sortable
 
     public $filesParams = ['video'];
 
+    protected $casts = [
+        'autoplay' => 'boolean',
+        'autoloop' => 'boolean'
+    ];
+
     public function sectors()
     {
         return $this->belongsToMany(Sector::class);
