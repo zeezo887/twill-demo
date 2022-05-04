@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\AboutController;
 use App\Http\Controllers\Api\DisciplineController;
 use App\Http\Controllers\Api\OfficeController;
 use App\Http\Controllers\Api\SectorController;
+use App\Http\Controllers\Api\SettingController;
 use App\Http\Controllers\Api\WorkController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,4 @@ Route::prefix('work')->group(function () {
 });
 
 Route::get('/offices', [OfficeController::class, 'index']);
+Route::get('/settings', [SettingController::class, 'index']);
