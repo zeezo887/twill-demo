@@ -3,11 +3,14 @@
 
 use App\Http\Controllers\Api\AboutController;
 use App\Http\Controllers\Api\DisciplineController;
+use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\OfficeController;
 use App\Http\Controllers\Api\SectorController;
 use App\Http\Controllers\Api\SettingController;
 use App\Http\Controllers\Api\WorkController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/home', [HomeController::class, 'index']);
 
 Route::prefix('about')->group(function () {
     Route::get('/', [AboutController::class, 'index']);

@@ -18,6 +18,7 @@ class WorkResource extends JsonResource
             'title' => $this->title,
             'slug' => $this->slug,
             'cover' => $this->imagesAsArraysWithCrops('cover'),
+            'homepage_image' => $this->imagesAsArraysWithCrops('homepage_slideshow'),
             'subtitle' => $this->subtitle,
             'description' => $this->description,
             'case_study_text' => $this->case_study_text,
