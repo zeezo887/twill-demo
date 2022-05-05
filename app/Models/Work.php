@@ -115,4 +115,9 @@ class Work extends Model implements Sortable
     {
         return $this->hasMany(WorkLink::class);
     }
+
+    public function people()
+    {
+        return $this->belongsToMany(Person::class);
+    }
 }
