@@ -51,7 +51,7 @@ class AboutController
      */
     public function person($slug)
     {
-        $person = $this->personRepository->forSlug($slug, ['slugs', 'medias', 'office', 'videos.medias']);
+        $person = $this->personRepository->forSlug($slug, ['slugs', 'medias', 'office', 'videos.medias', 'works.medias']);
 
         return new PersonResource($person);
     }

@@ -22,7 +22,8 @@ class PersonResource extends JsonResource
             'image' => $this->imagesAsArrays('main'),
             'slug' => $this->slug,
             'office' => $this->office_name,
-            'videos' => PersonVideoResource::collection($this->whenLoaded('videos'))
+            'videos' => PersonVideoResource::collection($this->whenLoaded('videos')),
+            'publications' => WorkResource::collection($this->whenLoaded('works'))
         ];
     }
 }

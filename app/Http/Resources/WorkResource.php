@@ -25,7 +25,8 @@ class WorkResource extends JsonResource
             'video_url' => $this->video_url,
             'autoplay' => $this->autoplay,
             'autoloop' => $this->autoloop,
-            'blocks' => BlockResource::collection($this->whenLoaded('blocks'))
+            'blocks' => BlockResource::collection($this->whenLoaded('blocks')),
+            'year' => $this->year
         ];
     }
 }

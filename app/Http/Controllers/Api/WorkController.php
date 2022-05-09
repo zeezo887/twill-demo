@@ -86,7 +86,6 @@ class WorkController
 
         $works = $this->repository->getWorks(['medias', 'slugs'], $scopes, $orders, $relation, $perPage, true);
 
-
         return WorkResource::collection($works->appends(['perPage' => $perPage, 'order' => $order]));
     }
 
