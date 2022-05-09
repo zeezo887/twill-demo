@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use A17\Twill\Models\Behaviors\Sortable;
 use A17\Twill\Repositories\Behaviors\HandleBlocks;
 use A17\Twill\Repositories\Behaviors\HandleBrowsers;
 use A17\Twill\Repositories\Behaviors\HandleFiles;
@@ -52,5 +53,29 @@ class WorkRepository extends ModuleRepository
         $fields = $this->getFormFieldsForRepeater($object, $fields, 'workLinks', 'WorkLink', 'external_link');
         $fields['browsers']['people'] = $this->getFormFieldsForBrowser($object, 'people', 'about');
         return $fields;
+    }
+
+    public function getWorks($with = [], $scopes = [], $orders = [], $relation = [], $perPage = 20, $forcePagination = false)
+    {
+        $query = $this->model->with($with);
+
+        if (! empty($relation)) {
+            $query->whereHas($relation['name'], function ($query) use ($relation) {
+                $query->forSlug($relation['slug']);
+            });
+        }
+
+        $query = $this->filter($query, $scopes);
+        $query = $this->order($query, $orders);
+
+        if (! $forcePagination && $this->model instanceof Sortable) {
+            return $query->ordered()->get();
+        }
+
+        if ($perPage == -1) {
+            return $query->get();
+        }
+
+        return $query->paginate($perPage);
     }
 }
