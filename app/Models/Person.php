@@ -14,7 +14,7 @@ use A17\Twill\Models\Model;
 
 class Person extends Model implements Sortable
 {
-    use HasBlocks, HasTranslation, HasSlug, HasMedias, HasRevisions, HasPosition, HasRelated;
+    use HasBlocks, HasTranslation, HasSlug, HasMedias, HasRevisions, HasPosition;
 
 
     protected $fillable = [
@@ -109,6 +109,11 @@ class Person extends Model implements Sortable
     public function role()
     {
         return $this->belongsTo(Role::class);
+    }
+
+    public function works()
+    {
+        return $this->belongsToMany(Work::class);
     }
 
     public function getRoleNameAttribute()
