@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use A17\Twill\Models\Behaviors\Sortable;
+use A17\Twill\Models\Contracts\TwillModelContract;
 use A17\Twill\Repositories\Behaviors\HandleBlocks;
 use A17\Twill\Repositories\Behaviors\HandleBrowsers;
 use A17\Twill\Repositories\Behaviors\HandleFiles;
@@ -32,7 +33,7 @@ class WorkRepository extends ModuleRepository
         $this->model = $model;
     }
 
-    public function afterSave($object, $fields)
+    public function afterSave(TwillModelContract $object, array $fields): void
     {
         parent::afterSave($object, $fields);
         $object->sectors()->sync($fields['sectors'] ?? []);
@@ -47,7 +48,7 @@ class WorkRepository extends ModuleRepository
         $this->updateBrowser($object, $fields, 'people');
     }
 
-    public function getFormFields($object)
+    public function getFormFields(TwillModelContract $object): array
     {
         $fields = parent::getFormFields($object);
         $fields = $this->getFormFieldsForRepeater($object, $fields, 'workLinks', 'WorkLink', 'external_link');
