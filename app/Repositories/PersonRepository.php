@@ -35,7 +35,7 @@ class PersonRepository extends ModuleRepository
         return $fields;
     }
 
-    public function hydrate($object, $fields)
+    public function hydrate(TwillModelContract $object, array $fields): TwillModelContract
     {
         $this->hydrateRepeater($object, $fields, 'videos', 'PersonVideo', 'video');
 

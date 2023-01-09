@@ -80,7 +80,7 @@ class WorkRepository extends ModuleRepository
         return $query->paginate($perPage);
     }
 
-    public function hydrate($object, $fields)
+    public function hydrate(TwillModelContract $object, array $fields): TwillModelContract
     {
         $this->hydrateMultiSelect($object, $fields, 'disciplines');
         $this->hydrateMultiSelect($object, $fields, 'sectors');
