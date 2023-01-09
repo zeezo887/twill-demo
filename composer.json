@@ -10,7 +10,8 @@
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.2",
         "laravel/sanctum": "^2.14.1",
-        "laravel/tinker": "^2.7"
+        "laravel/tinker": "^2.7",
+        "area17/twill-image": "1.x-dev"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -47,6 +48,15 @@
             "@php artisan key:generate --ansi"
         ]
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../twill-image",
+            "options": {
+                "symlink": false
+            }
+        }
+    ],
     "extra": {
         "laravel": {
             "dont-discover": []
