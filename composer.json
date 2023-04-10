@@ -7,14 +7,17 @@
     "require": {
         "php": "^8.0.2",
         "area17/twill": "3.x-dev",
+        "area17/twill-api": "dev-develop",
+        "area17/twill-image": "1.x-dev",
         "guzzlehttp/guzzle": "^7.2",
+        "laravel-json-api/laravel": "^2.4",
         "laravel/framework": "^9.2",
         "laravel/sanctum": "^2.14.1",
-        "laravel/tinker": "^2.7",
-        "area17/twill-image": "1.x-dev"
+        "laravel/tinker": "^2.7"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
+        "laravel-json-api/testing": "^1.1",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
@@ -48,15 +51,6 @@
             "@php artisan key:generate --ansi"
         ]
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../twill-image",
-            "options": {
-                "symlink": false
-            }
-        }
-    ],
     "extra": {
         "laravel": {
             "dont-discover": []
